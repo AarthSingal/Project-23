@@ -26,17 +26,12 @@ function setup() {
 	helicopterSprite.addImage(helicopterIMG)
 	helicopterSprite.scale=0.6
 
-	groundSprite=createSprite(width/2, height-35, width,10);
-	groundSprite.shapeColor=color(255)
-
 	
 
 	
-	side2 = createSprite(350,650,200,20);
-	side2.shapeColor = "red";
+
 	
-	side3 = createSprite(450,612,20,100);
-	side3.shapeColor = "red";
+	
 
 	engine = Engine.create();
 	world = engine.world;
@@ -49,7 +44,9 @@ function setup() {
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
  	World.add(world, ground);
 
-	 side1 = new Side(250,612,20,100);
+	side1 = new Side(250,607,20,100);
+	side2 = new Side(340,647,200,20);
+	side3 = new Side(430,607,20,100);
 	 
 	 //World.add(world,side1);
 
@@ -59,13 +56,19 @@ function setup() {
 
 
 function draw() {
-  rectMode(CENTER);
+  
   background(0);
+  rectMode(CENTER);
+  rect(ground.position.x,ground.position.y,width,10);
+  ellipseMode(RADIUS);
+  ellipse(packageBody.position.x,packageBody.position.y,5,5);
   packageSprite.x= packageBody.position.x ;
   packageSprite.y= packageBody.position.y ;
+  
+  side1.display();
+  side3.display();
+  side2.display();
   drawSprites();
-  side1.display;
-  keyPressed();
   
 }
 
@@ -74,6 +77,3 @@ function keyPressed() {
     Body.setStatic(packageBody,false);
   }
 }
-
-
-

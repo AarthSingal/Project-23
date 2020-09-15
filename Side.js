@@ -3,7 +3,7 @@ class Side {
         var side_options = {
             isStatic : true 
         }
-        this.Side  = Bodies.rectangle(x,y,width,height,side_options);
+        this.side  = Bodies.rectangle(x,y,width,height,side_options);
         this.width = width;
         this.height = height;
 
@@ -13,6 +13,7 @@ class Side {
 
     display(){
         rectMode(CENTER);
+        fill("red");
 
         rect(this.side.position.x,this.side.position.y,this.width,this.height);
     }
